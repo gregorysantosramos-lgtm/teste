@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramos Automação - Produtividade Inteligente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1e3a5f;
+            background-color: #f8fafc;
+            text-align: justify;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-svg {
+            height: 100px;
+            width: auto;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: relative;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1e3a5f;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #3b82f6;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 10px 0;
+            display: none;
+            min-width: 220px;
+            z-index: 99;
+        }
+
+        .dropdown-menu li {
+            padding: 10px 20px;
+        }
+
+        .dropdown-menu li a {
+            color: #1e3a5f;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f1f5f9;
+            color: #2563eb;
+        }
+
+        /* Exibe submenu ao passar o mouse */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Botão menu mobile */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 700px;
+            text-align: justify;
+        }
+
+        .about-icon {
+            width: 150px;
+            height: 150px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .about-icon::before {
+            content: '⚙️';
+            font-size: 4rem;
+        }
+
+        .about-icon::after {
+            content: '📊';
+            font-size: 2rem;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #3b82f6;
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            opacity: 0.95;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        .floating-btn.email {
+            background: #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .floating-btn.email:hover {
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .logo-svg {
+                height: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-icon {
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+                color: #1e3a5f;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+                background: white;
+                padding: 20px;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Logo SVG -->
+                    <svg class="logo-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Engrenagem principal -->
+                        <g transform="translate(40, 75)">
+                            <!-- Círculo externo da engrenagem -->
+                            <circle cx="0" cy="0" r="35" fill="#3d5365"/>
+                            
+                            <!-- Dentes da engrenagem (8 dentes) -->
+                            <rect x="-7" y="-45" width="14" height="12" fill="#3d5365"/>
+                            <rect x="-7" y="33" width="14" height="12" fill="#3d5365"/>
+                            <rect x="-45" y="-7" width="12" height="14" fill="#3d5365"/>
+                            <rect x="33" y="-7" width="12" height="14" fill="#3d5365"/>
+                            
+                            <!-- Dentes diagonais -->
+                            <g transform="rotate(45)">
+                                <rect x="-7" y="-45" width="14" height="12" fill="#3d5365"/>
+                                <rect x="-7" y="33" width="14" height="12" fill="#3d5365"/>
+                                <rect x="-45" y="-7" width="12" height="14" fill="#3d5365"/>
+                                <rect x="33" y="-7" width="12" height="14" fill="#3d5365"/>
+                            </g>
+                            
+                            <!-- Círculo interno -->
+                            <circle cx="0" cy="0" r="20" fill="none" stroke="white" stroke-width="5"/>
+                        </g>
+                        
+                        <!-- Circuitos saindo da engrenagem -->
+                        <g stroke="#3d5365" stroke-width="3" fill="none">
+                            <!-- Circuito superior -->
+                            <path d="M 75 55 L 90 55 L 90 40 L 105 40"/>
+                            <circle cx="90" cy="55" r="3" fill="#3d5365"/>
+                            <circle cx="105" cy="40" r="4" fill="#3d5365"/>
+                            
+                            <!-- Circuito do meio -->
+                            <path d="M 75 75 L 105 75"/>
+                            <circle cx="95" cy="75" r="3" fill="#3d5365"/>
+                            <circle cx="105" cy="75" r="4" fill="#3d5365"/>
+                            
+                            <!-- Circuito inferior -->
+                            <path d="M 75 95 L 90 95 L 90 110 L 105 110"/>
+                            <circle cx="90" cy="95" r="3" fill="#3d5365"/>
+                            <circle cx="105" cy="110" r="4" fill="#3d5365"/>
+                        </g>
+                        
+                        <!-- Texto RAMOS -->
+                        <text x="130" y="80" font-family="Arial, sans-serif" font-size="50" font-weight="900" fill="#2c3e50" letter-spacing="3">RAMOS</text>
+                        
+                        <!-- Texto AUTOMAÇÃO -->
+                        <text x="130" y="110" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#2c3e50" letter-spacing="6">AUTOMAÇÃO</text>
+                    </svg>
+                </div>
+
+                <!-- Botão Mobile -->
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+                <!-- Navegação -->
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="#inicio">Início</a></li>
+                        <li class="dropdown">
+                            <a href="#servicos">Serviços ▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#excel">Excel / VBA</a></li>
+                                <li><a href="#project">MS Project</a></li>
+                                <li><a href="#sap">Integração SAP</a></li>
+                                <li><a href="#personalizada">Automação Personalizada</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Transforme tarefas repetitivas em produtividade através de automações inteligentes</h1>
+            <button class="cta-button" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth'})">
+                Solicite Consultoria
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Sobre</h2>
+                    <p>Somos especialistas em automação de processos administrativos, com expertise em Excel, VBA, MS Project e integração de sistemas corporativos, incluindo SAP. Desenvolvemos soluções personalizadas que otimizam rotinas operacionais, aumentam a produtividade e reduzem significativamente o tempo dedicado a tarefas repetitivas.</p>
+                </div>
+                <div class="about-icon"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card" id="excel">
+                    <div class="service-icon">📊</div>
+                    <h3>Excel / VBA</h3>
+                    <p>Desenvolvimento de macros avançadas, dashboards interativos e relatórios automatizados para análise de dados.</p>
+                </div>
+
+                <div class="service-card" id="project">
+                    <div class="service-icon">📋</div>
+                    <h3>MS Project</h3>
+                    <p>Desenvolvimento de lógicas personalizadas e automatização de cronogramas para gerenciamento eficiente de projetos complexos.</p>
+                </div>
+
+                <div class="service-card" id="sap">
+                    <div class="service-icon">🔄</div>
+                    <h3>Integração e Automação SAP</h3>
+                    <p>Soluções integradas entre Office e SAP com extração e envio automatizado de dados. Nossos projetos alcançaram redução de até 90% no tempo de execução de processos.</p>
+                </div>
+
+                <div class="service-card" id="personalizada">
+                    <div class="service-icon">⚡</div>
+                    <h3>Automação Personalizada</h3>
+                    <p>Análise detalhada das necessidades do seu negócio e desenvolvimento de fluxos administrativos personalizados que maximizam eficiência operacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PowerApps Section -->
+    <section class="powerapps" id="powerapps">
+        <div class="container">
+            <h2>Desenvolvimento em PowerApps</h2>
+            <div class="powerapps-intro">
+                <p>Desenvolvemos aplicativos personalizados com Microsoft PowerApps para transformar seus processos de negócio em soluções digitais modernas, acessíveis em qualquer dispositivo e integradas ao ecossistema Microsoft 365.</p>
+            </div>
+            
+            <div class="powerapps-grid">
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">📱</div>
+                    <h3>Apps Canvas</h3>
+                    <p>Aplicativos totalmente personalizados com interface sob medida para suas necessidades. Ideal para processos específicos que exigem design único e experiência de usuário otimizada.</p>
+                </div>
+
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">📋</div>
+                    <h3>Apps Model-Driven</h3>
+                    <p>Aplicações empresariais robustas baseadas em dados do Dataverse. Perfeito para gestão de informações complexas, CRMs customizados e sistemas de controle operacional.</p>
+                </div>
+
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">🔗</div>
+                    <h3>Integração com Power Automate</h3>
+                    <p>Conectamos seus apps PowerApps com fluxos automatizados usando Power Automate, criando processos completos que conectam múltiplos sistemas e eliminam trabalho manual.</p>
+                </div>
+
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">💾</div>
+                    <h3>Conexões com Dados</h3>
+                    <p>Integramos seus apps com SharePoint, SQL Server, Excel, Dataverse, APIs externas e centenas de outros conectores para centralizar informações de múltiplas fontes.</p>
+                </div>
+
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">📊</div>
+                    <h3>Power BI Embedded</h3>
+                    <p>Incorporamos dashboards e relatórios do Power BI diretamente em seus aplicativos PowerApps, proporcionando análise de dados em tempo real dentro da sua solução.</p>
+                </div>
+
+                <div class="powerapps-card">
+                    <div class="powerapps-icon">🎯</div>
+                    <h3>Soluções Completas</h3>
+                    <p>Desde apps simples de formulários até sistemas complexos de gestão empresarial. Desenvolvemos a solução completa incluindo design, lógica de negócio, integrações e treinamento da equipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2>Contato</h2>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Telefone" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Mensagem" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/5519974110270" class="floating-btn" target="_blank" title="WhatsApp">📱</a>
+        <a href="mailto:contato@exemplo.com" class="floating-btn email" title="E-mail">✉️</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        }
+    </script>
+</body>
+</html>
