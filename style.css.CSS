@@ -1,0 +1,152 @@
+/* --------------------------- */
+/*   ESTILO GERAL              */
+/* --------------------------- */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0A1A2F;
+    color: white;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+/* --------------------------- */
+/*   HEADER                    */
+/* --------------------------- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    height: 70px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.header a:hover {
+    color: #00eaff;
+}
+
+.btn-header {
+    padding: 8px 18px;
+    border: 1px solid #00eaff;
+    border-radius: 6px;
+}
+
+.active {
+    color: #00eaff;
+}
+
+/* --------------------------- */
+/*   HERO                      */
+/* --------------------------- */
+
+.hero {
+    background: url('assets/logo.png') center/contain no-repeat, 
+                linear-gradient(#07111f, #0a1a2f);
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.btn {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    background: #00eaff;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* --------------------------- */
+/*   PÁGINAS INTERNAS          */
+/* --------------------------- */
+
+.page {
+    padding: 80px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #0F243C;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #00eaff44;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #00eaff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 350px;
+    margin-top: 20px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #00eaff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --------------------------- */
+/*   ANIMAÇÕES                 */
+/* --------------------------- */
+
+.fade-in {
+    animation: fade 1.5s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
