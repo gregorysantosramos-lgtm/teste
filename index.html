@@ -27,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             background: var(--gradient);
             color: white;
@@ -74,7 +73,6 @@
             opacity: 0.8;
         }
 
-        /* Hero Section */
         .hero {
             background: var(--gradient);
             color: white;
@@ -112,7 +110,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* Sections */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
@@ -137,7 +134,6 @@
             border-radius: 2px;
         }
 
-        /* About */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -172,7 +168,6 @@
             font-size: 1.3rem;
         }
 
-        /* Services */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -200,29 +195,6 @@
             font-size: 1.5rem;
         }
 
-        .service-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .service-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-
-        /* Highlights */
-        .highlights {
-            background: var(--light-color);
-        }
-
         .highlight-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -240,12 +212,6 @@
             margin-bottom: 1rem;
         }
 
-        .highlight-item h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact */
         .contact {
             background: var(--gradient);
             color: white;
@@ -260,28 +226,6 @@
             background: white;
         }
 
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: white;
-            color: var(--secondary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s;
-        }
-
-        .contact-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
         footer {
             background: var(--dark-color);
             color: white;
@@ -289,7 +233,6 @@
             padding: 2rem;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -301,7 +244,6 @@
             }
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -311,7 +253,6 @@
             cursor: pointer;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -351,14 +292,16 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
             <div class="logo-container">
-                <!-- Insira sua logo aqui -->
                 <img src="logo.png" alt="Ramos Engenharia" id="logo">
             </div>
+
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
             <ul id="menu">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -380,8 +323,8 @@
         <div class="about-content">
             <div class="about-text">
                 <p>A Ramos Engenharia nasceu com um propósito claro: entregar soluções de engenharia e automação com mais eficiência, precisão e foco no cliente.</p>
-                <p>Nossa empresa surgiu da percepção de que o mercado precisava de parceiros mais ágeis, inovadores e comprometidos com resultados reais, algo que grandes estruturas nem sempre conseguem oferecer.</p>
-                <p>Unimos experiência prática, visão moderna e domínio técnico para desenvolver soluções que simplificam, automatizam e otimizam processos de engenharia, manutenção e gestão.</p>
+                <p>Nossa empresa surgiu da percepção de que o mercado precisava de parceiros mais ágeis, inovadores e comprometidos com resultados reais.</p>
+                <p>Unimos experiência prática, visão moderna e domínio técnico para desenvolver soluções que simplificam, automatizam e otimizam processos industriais e administrativos.</p>
             </div>
             <div>
                 <h3 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Somos especialistas em:</h3>
@@ -390,7 +333,7 @@
                     <li>Engenharia e manutenção industrial</li>
                     <li>Desenvolvimento de soluções em APPs</li>
                     <li>Power Automate</li>
-                    <li>Integração SAP com recursos externos</li>
+                    <li>Integração SAP</li>
                     <li>Excel / VBA</li>
                     <li>Projetos customizados</li>
                     <li>Soluções completas em engenharia e facilities</li>
@@ -404,68 +347,32 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Automação SAP</h3>
-                <p>Conectamos o SAP a diversas ferramentas corporativas, criando fluxos inteligentes e eliminando retrabalho.</p>
-                <ul>
-                    <li>Eliminação de tarefas manuais repetitivas</li>
-                    <li>Integração SAP + Office + Power BI</li>
-                    <li>Redução de erros e ganho de velocidade</li>
-                    <li>Padronização de processos</li>
-                </ul>
+                <p>Conectamos o SAP a ferramentas corporativas criando fluxos inteligentes.</p>
             </div>
 
             <div class="service-card">
                 <h3>Automação de Processos</h3>
-                <p>Automatizamos rotinas administrativas e conectamos sistemas corporativos com inteligência.</p>
-                <ul>
-                    <li>Fluxos via Power Automate</li>
-                    <li>Redução de tarefas repetitivas</li>
-                    <li>Conexão entre sistemas</li>
-                    <li>Maior produtividade operacional</li>
-                </ul>
+                <p>Eliminamos tarefas repetitivas e conectamos sistemas com inteligência.</p>
             </div>
 
             <div class="service-card">
                 <h3>Excel / VBA Avançado</h3>
-                <p>Criamos sistemas robustos e personalizados dentro do Excel para atender suas necessidades específicas.</p>
-                <ul>
-                    <li>Dashboards executivos</li>
-                    <li>Relatórios automáticos</li>
-                    <li>Robôs administrativos</li>
-                    <li>Sistemas internos personalizados</li>
-                </ul>
+                <p>Desenvolvemos sistemas completos dentro do Excel.</p>
             </div>
 
             <div class="service-card">
                 <h3>MS Project</h3>
-                <p>Estruturamos cronogramas profissionais com automação e padrões corporativos de gestão.</p>
-                <ul>
-                    <li>Cronogramas profissionais estruturados</li>
-                    <li>Automação de sequências</li>
-                    <li>Padrões corporativos</li>
-                    <li>Controle de caminho crítico</li>
-                </ul>
+                <p>Estruturamos cronogramas profissionais automatizados.</p>
             </div>
 
             <div class="service-card">
-                <h3>Gestão de Projetos Executivos</h3>
-                <p>Coordenamos projetos multidisciplinares com rigor técnico do planejamento à execução.</p>
-                <ul>
-                    <li>Planejamento e coordenação completa</li>
-                    <li>Integração multidisciplinar</li>
-                    <li>Padronização técnica</li>
-                    <li>Controle de escopo, prazo e custo</li>
-                </ul>
+                <h3>Projetos Executivos</h3>
+                <p>Coordenamos projetos multidisciplinares ponta a ponta.</p>
             </div>
 
             <div class="service-card">
                 <h3>Soluções Personalizadas</h3>
-                <p>Desenvolvemos ferramentas sob medida para o seu processo específico de trabalho.</p>
-                <ul>
-                    <li>Análise das necessidades</li>
-                    <li>Desenvolvimento customizado</li>
-                    <li>Integração com sistemas existentes</li>
-                    <li>Suporte e manutenção</li>
-                </ul>
+                <p>Desenvolvemos ferramentas sob medida para seu processo.</p>
             </div>
         </div>
     </section>
@@ -476,22 +383,25 @@
             <div class="highlight-item">
                 <div class="highlight-icon">⚡</div>
                 <h3>Agilidade</h3>
-                <p>Respostas rápidas e implementações eficientes que entregam resultados no menor tempo possível</p>
+                <p>Implementações rápidas e eficientes.</p>
             </div>
+
             <div class="highlight-item">
                 <div class="highlight-icon">🎯</div>
                 <h3>Precisão</h3>
-                <p>Soluções tecnicamente sólidas com foco total em qualidade e assertividade</p>
+                <p>Soluções técnicas sólidas e confiáveis.</p>
             </div>
+
             <div class="highlight-item">
                 <div class="highlight-icon">💡</div>
                 <h3>Inovação</h3>
-                <p>Visão moderna e ferramentas de ponta para transformar seus processos</p>
+                <p>Tecnologia moderna para transformar processos.</p>
             </div>
+
             <div class="highlight-item">
                 <div class="highlight-icon">📊</div>
                 <h3>Resultados</h3>
-                <p>Compromisso com redução de custos, aumento de produtividade e eficiência operacional</p>
+                <p>Foco total em produtividade e eficiência.</p>
             </div>
         </div>
     </section>
@@ -507,7 +417,6 @@
     </footer>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -517,18 +426,15 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     document.getElementById('menu').classList.remove('active');
                 }
             });
         });
 
-        // Mobile menu toggle
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('active');
         }
 
-        // Change header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -538,10 +444,7 @@
             }
         });
 
-        // Placeholder for logo - remove this when you add your actual logo
-        document.getElementById('logo').style.display = 'none';
-        document.querySelector('.logo-container').innerHTML = '<h2 style="margin: 0; color: white;">RAMOS</h2>';
+        // LOGO OK — nada mais altera ou esconde ela
     </script>
 </body>
 </html>
-
