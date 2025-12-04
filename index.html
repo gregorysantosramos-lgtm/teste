@@ -12,9 +12,6 @@
             box-sizing: border-box;
         }
 
-        /* ============================
-           PALETA AZUL MARINHO
-        ============================= */
         :root {
             --primary-color: #003366;
             --secondary-color: #001f4d;
@@ -24,9 +21,6 @@
             --gradient: linear-gradient(135deg, #003366 0%, #001f4d 100%);
         }
 
-        /* ============================
-           GLOBAL
-        ============================= */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -34,13 +28,10 @@
             overflow-x: hidden;
         }
 
-        /* ============================
-           HEADER / MENU SUPERIOR
-        ============================= */
         header {
             background: var(--gradient);
             color: white;
-            padding: 0.25rem 0; /* altura da faixa */
+            padding: 0.25rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -58,7 +49,7 @@
         }
 
         .logo-container {
-            height: 45px; /* tamanho ideal */
+            height: 45px;
             display: flex;
             align-items: center;
         }
@@ -96,9 +87,6 @@
             cursor: pointer;
         }
 
-        /* ============================
-           HERO
-        ============================= */
         .hero {
             background: var(--gradient);
             color: white;
@@ -122,8 +110,8 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: white;
-            color: var(--secondary-color);
+            background: #25D366;
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
@@ -136,9 +124,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* ============================
-           SEÇÕES
-        ============================= */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
@@ -163,7 +148,6 @@
             border-radius: 2px;
         }
 
-        /* SOBRE */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -198,7 +182,6 @@
             font-size: 1.2rem;
         }
 
-        /* SERVIÇOS */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -220,13 +203,6 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        .service-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* DIFERENCIAIS */
         .highlight-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -234,24 +210,35 @@
             text-align: center;
         }
 
-        .highlight-icon {
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* CONTATO */
         .contact {
             background: var(--gradient);
             color: white;
             text-align: center;
+            padding-bottom: 120px;
         }
 
         .contact h2::after {
             background: white;
         }
 
-        /* FOOTER */
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
         footer {
             background: var(--dark-color);
             color: white;
@@ -259,10 +246,6 @@
             padding: 2rem;
             margin-top: 40px;
         }
-
-        /* ============================
-           ANIMAÇÕES E RESPONSIVIDADE
-        ============================= */
 
         @keyframes fadeInUp {
             from {
@@ -303,10 +286,6 @@
             .about-content {
                 grid-template-columns: 1fr;
             }
-
-            section h2 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -326,6 +305,9 @@
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#diferenciais">Diferenciais</a></li>
                 <li><a href="#contato">Contato</a></li>
+
+                <!-- BOTÃO WHATSAPP NO MENU -->
+                <li><a href="https://wa.me/19974110270" target="_blank" style="color:#25D366; font-weight:bold;">WhatsApp</a></li>
             </ul>
         </nav>
     </header>
@@ -333,7 +315,7 @@
     <section class="hero" id="inicio">
         <h1>Soluções em Automação, Engenharia e Ferramentas</h1>
         <p>Acelere seus resultados com eficiência, precisão e foco total em produtividade</p>
-        <a href="#contato" class="cta-button">Fale Conosco</a>
+        <a href="https://wa.me/19974110270" class="cta-button" target="_blank">Fale no WhatsApp</a>
     </section>
 
     <section id="sobre">
@@ -399,25 +381,25 @@
     <section class="highlights" id="diferenciais">
         <h2>Nossos Diferenciais</h2>
         <div class="highlight-grid">
-            <div class="highlight-item">
+            <div>
                 <div class="highlight-icon">⚡</div>
                 <h3>Agilidade</h3>
                 <p>Implementações rápidas e eficientes.</p>
             </div>
 
-            <div class="highlight-item">
+            <div>
                 <div class="highlight-icon">🎯</div>
                 <h3>Precisão</h3>
                 <p>Soluções técnicas sólidas e confiáveis.</p>
             </div>
 
-            <div class="highlight-item">
+            <div>
                 <div class="highlight-icon">💡</div>
                 <h3>Inovação</h3>
                 <p>Tecnologia moderna para transformar processos.</p>
             </div>
 
-            <div class="highlight-item">
+            <div>
                 <div class="highlight-icon">📊</div>
                 <h3>Resultados</h3>
                 <p>Foco total em produtividade e eficiência.</p>
@@ -426,20 +408,39 @@
     </section>
 
     <section class="contact" id="contato">
-        <h2>Vamos Transformar Seus Processos?</h2>
-        <p>Entre em contato e descubra como podemos acelerar seus resultados</p>
-        <a href="mailto:RAMOS.ENGENHARIAEFICIENTE@outlook.com" class="contact-button">Solicitar Orçamento</a>
+        <h2>Vamos Conversar?</h2>
+        <p>Entre em contato pelo WhatsApp ou escaneie o QR Code abaixo.</p>
+
+        <!-- BOTÃO WHATSAPP -->
+        <a href="https://wa.me/19974110270" class="whatsapp-btn" target="_blank">
+            Falar no WhatsApp
+        </a>
+
+        <br><br>
+
+        <!-- QR CODE (você só precisa colocar o arquivo na pasta) -->
+        <img src="qrcode.png" alt="QR Code WhatsApp" style="width:160px; border-radius:10px;">
+        <p style="margin-top:10px;">Aponte a câmera do celular</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Ramos Engenharia. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Ramos Engenharia. Todos os direitos reservados.</p>
     </footer>
 
     <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
